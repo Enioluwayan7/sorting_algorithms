@@ -5,6 +5,7 @@
 * @a: The first integer to swap.
 * @b: The second integer to swap.
 */
+
 void swap_ints(int *a, int *b)
 {
 	int tm_p;
@@ -13,35 +14,31 @@ void swap_ints(int *a, int *b)
 	*b = tm_p;
 }
 /**
-* selection_sort - Sort an array of integers in ascending order
-* using the selection sort algorithm.
-* @array: An array of integers.
+* bubble_sort - Sort an array of integers in ascending order.
+* @array: An array of integers to sort.
 * @size: The size of the array.
 *
 * Description: Prints the array after each swap.
 */
-void selection_sort(int *array, size_t size)
+
+void bubble_sort(int *array, size_t size)
 {
-	int *mn;
-	size_t i, k;
+	size_t j, length = size;
+	bool bub = false;
 	if (array == NULL || size < 2)
 	return;
-	
-
-	for (i = 0; i < size - 1; i++)
+	while (bub == false)
 	{
-		mn = array + i;
-		
-		for (k = i + 1; k < size; k++)
+		bub = true;
+		for (j = 0; j < length - 1; j++)
 		{
-			mn = (array[k] < *mn) ? (array + k) : mn;
-		}
-
-			if ((array + i) != mn)
+			if (array[j] > array[j + 1])
 			{
-				swap_ints(array + i, mn);
+				swap_ints(array + j, array + j + 1);
 				print_array(array, size);
+				bub = false;
 			}
+		}
+		length--;
 	}
 }
-

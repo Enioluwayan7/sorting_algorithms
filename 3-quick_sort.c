@@ -58,12 +58,12 @@ int lomuto_partition(int *array, size_t size, int left, int right)
 */
 void lomuto_sort(int *array, size_t size, int left, int right)
 {
-	int bee_long;
+	int be_long;
 	if (right - left > 0)
 	{
 		be_long = lomuto_partition(array, size, left, right);
-		lomuto_sort(array, size, left, bee_long - 1);
-		lomuto_sort(array, size, bee_long + 1, right);
+		lomuto_sort(array, size, left, be_long - 1);
+		lomuto_sort(array, size, be_long + 1, right);
 	}
 }
 /**
